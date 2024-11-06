@@ -1,38 +1,194 @@
-.App {
-  text-align: center;
+/* Base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat to all text */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.spline-c {
+  width: 100vw;
+  min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Style for the name at the top-left corner */
+.name {
+  position: fixed;
+  padding:30px;
+  transform: translateX(-0%); /* Offsets the element to fully center it */
+  font-size: 2.5rem; /* Set the desired font size */
+  font-family: 'Dancing Script', cursive;
+; /* Apply Montserrat */
+  color: white; /* Text color */
+  font-weight: bold; /* Makes the text bold */
+  z-index: 100; /* Ensure it's above other elements */
 }
 
-.App-header {
-  background-color: #282c34;
+
+.spline-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.spline-contact {
+  background: linear-gradient(to bottom, #000000, #2c2c2c);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.side-scroller {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px 5px;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.side-scroller button {
+  font-size: 14px;
+  padding: 10px 10px;
+  width: 90px;
+  border: none;
+  background-color: rgba(195, 50, 50, 0.045);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.side-scroller button:hover {
+  background-color: rgba(243, 156, 18, 0.8);
+  color: black;
+}
+
+.side-scroller button.active {
+  background-color: rgba(243, 156, 18, 1);
+  color: black;
+}
+
+.section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: start;
+  text-align: start;
+  padding: 40px;
   color: white;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.App-link {
-  color: #61dafb;
+.section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.section p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 800px;
+}
+
+/* Animation for changing text */
+.animated-text {
+  opacity: 0;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+.no-bullets {
+  /* list-style-type: none; */
+  line-height: 1.2;
+  padding-left: 1;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .section h1 {
+    font-size: 2.5rem;
+  }
+  .section p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .side-scroller button {
+    font-size: 12px;
+    padding: 8px;
+    width: 80px;
+  }
+  .section h1 {
+    font-size: 2.2rem;
+  }
+  .section p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-scroller {
+    gap: 6px;
+    padding: 6px 4px;
+  }
+  .side-scroller button {
+    font-size: 12px;
+    padding: 6px 8px;
+    width: 70px;
+  }
+  .section {
+    padding: 30px;
+  }
+  .section h1 {
+    font-size: 1.8rem;
+  }
+  .section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .side-scroller button {
+    font-size: 11px;
+    padding: 5px 6px;
+    width: 60px;
+  }
+  .section {
+    padding: 20px;
+  }
+  .section h1 {
+    font-size: 1.5rem;
+  }
+  .section p {
+    font-size: 0.9rem;
   }
 }
