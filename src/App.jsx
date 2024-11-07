@@ -6,9 +6,14 @@ import Contact from "./Contact";
 
 function MainContent() {
   const [currentText, setCurrentText] = useState("Full Stack Developer");
-  const textArray = ["Full Stack Developer", "Web Designer", "ML Enthusiast","UI/UX Designer"];
+  const textArray = [
+    "Full Stack Developer",
+    "Web Designer",
+    "ML Enthusiast",
+    "UI/UX Designer",
+  ];
 
-  // Change text every 3 seconds
+  // Change text eve/y 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentText((prevText) => {
@@ -46,27 +51,30 @@ function MainContent() {
         </p>
       </div>
       <div id="section3" className="section">
-  <h1>Projects</h1>
-  <p>
-    Check out my GitHub for more details on my projects!
-  </p>
-  <ul className="no-bullets">
-    <li>
-      <strong>8-bit Image Processor</strong>: Converts images into 8-bit pixelated versions.
-    </li>
-    <li>
-      <strong>MERN Stack Chat App</strong>: A real-time messaging app built using MongoDB, Express.js, React, and Node.js.
-    </li>
-    <li>
-      <strong>WhatsApp Chat Analysis Tool</strong>: Uses machine learning to analyze chat data and extract insights.
-    </li>
-    <li>
-      <strong>AcadBud - College Management System</strong>: A system built with the MERN stack to manage academic processes.<br></br> It provides distinct portals for students, faculty, and administrators,<br></br> streamlining tasks like uploading materials, viewing marks, and managing user accounts.
-    </li>
-  </ul>
-</div>
-
-
+        <h1>Projects</h1>
+        <p>Check out my GitHub for more details on my projects!</p>
+        <ul className="no-bullets">
+          <li>
+            <strong>8-bit Image Processor</strong>: Converts images into 8-bit
+            pixelated versions.
+          </li>
+          <li>
+            <strong>MERN Stack Chat App</strong>: A real-time messaging app
+            built using MongoDB, Express.js, React, and Node.js.
+          </li>
+          <li>
+            <strong>WhatsApp Chat Analysis Tool</strong>: Uses machine learning
+            to analyze chat data and extract insights.
+          </li>
+          <li>
+            <strong>AcadBud - College Management System</strong>: A system built
+            with the MERN stack to manage academic processes.<br></br> It
+            provides distinct portals for students, faculty, and administrators,
+            <br></br> streamlining tasks like uploading materials, viewing
+            marks, and manaaging user accounts.
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
@@ -75,7 +83,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainContent />} />
+        <Route path="/PortfolioWebsite" element={<MainContent />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
